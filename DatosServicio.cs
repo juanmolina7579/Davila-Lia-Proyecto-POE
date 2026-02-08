@@ -43,6 +43,32 @@ namespace Datos
             return lista;
         }
 
+        public string EditarServicio(Servicio servicio, SqlConnection cn)
+        {
+            string msj = "";
+            string comando = "UPDATE Servicio SET tipoServicio=@Tipo, precio=@Precio, cantidad=@Cant, unidad=@Uni, observacion=@Obs, total=@Total WHERE idServ=@IdServ";
+            cmd = new SqlCommand(comando, cn);
+            cmd.Parameters.AddWithValue("@IdServ", servicio.idServ);
+            cmd.Parameters.AddWithValue("@Tipo", servicio.TipoServicio);
+            cmd.Parameters.AddWithValue("@Precio", servicio.Precio);
+            cmd.Parameters.AddWithValue("@Cant", servicio.Cantidad);
+            cmd.Parameters.AddWithValue("@Uni", servicio.Unidad);
+            cmd.Parameters.AddWithValue("@Obs", servicio.Observacion ?? "");
+            cmd.Parameters.AddWithValue("@Total", servicio.CalcularCosto(servicio.Cantidad));
+            try
+            {
+                cmd.ExecuteNonQuery();
+                msj = "1";
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                msj = "0" + ex.Message;
+
+            }
+            return msj;
+
+        }
         public string EliminarServicio(long idServ, SqlConnection cn)
         {
             string msj = "";

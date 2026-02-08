@@ -36,7 +36,18 @@
             this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colObsv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.numHasta = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numDesde = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rbtPrecio = new System.Windows.Forms.RadioButton();
+            this.rbtCantidad = new System.Windows.Forms.RadioButton();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnMostrarTodos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numHasta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDesde)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvServicios
@@ -52,13 +63,13 @@
             this.colUnidad,
             this.colObsv,
             this.colTotal});
-            this.dgvServicios.Location = new System.Drawing.Point(37, 42);
+            this.dgvServicios.Location = new System.Drawing.Point(54, 148);
+            this.dgvServicios.Margin = new System.Windows.Forms.Padding(4);
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
             this.dgvServicios.RowHeadersWidth = 51;
-            this.dgvServicios.Size = new System.Drawing.Size(644, 229);
+            this.dgvServicios.Size = new System.Drawing.Size(859, 282);
             this.dgvServicios.TabIndex = 0;
-            this.dgvServicios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ColNro
             // 
@@ -116,16 +127,123 @@
             this.colTotal.ReadOnly = true;
             this.colTotal.Width = 125;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(465, 462);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 29);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Imprimir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // numHasta
+            // 
+            this.numHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numHasta.Location = new System.Drawing.Point(541, 61);
+            this.numHasta.Margin = new System.Windows.Forms.Padding(4);
+            this.numHasta.Name = "numHasta";
+            this.numHasta.Size = new System.Drawing.Size(75, 22);
+            this.numHasta.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(462, 64);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 16);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Hasta:";
+            // 
+            // numDesde
+            // 
+            this.numDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numDesde.Location = new System.Drawing.Point(338, 64);
+            this.numDesde.Margin = new System.Windows.Forms.Padding(4);
+            this.numDesde.Name = "numDesde";
+            this.numDesde.Size = new System.Drawing.Size(75, 22);
+            this.numDesde.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(266, 64);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Desde";
+            // 
+            // rbtPrecio
+            // 
+            this.rbtPrecio.AutoSize = true;
+            this.rbtPrecio.Location = new System.Drawing.Point(97, 43);
+            this.rbtPrecio.Name = "rbtPrecio";
+            this.rbtPrecio.Size = new System.Drawing.Size(67, 20);
+            this.rbtPrecio.TabIndex = 15;
+            this.rbtPrecio.TabStop = true;
+            this.rbtPrecio.Text = "Precio";
+            this.rbtPrecio.UseVisualStyleBackColor = true;
+            this.rbtPrecio.CheckedChanged += new System.EventHandler(this.rbtPrecio_CheckedChanged);
+            // 
+            // rbtCantidad
+            // 
+            this.rbtCantidad.AutoSize = true;
+            this.rbtCantidad.Location = new System.Drawing.Point(97, 90);
+            this.rbtCantidad.Name = "rbtCantidad";
+            this.rbtCantidad.Size = new System.Drawing.Size(82, 20);
+            this.rbtCantidad.TabIndex = 16;
+            this.rbtCantidad.TabStop = true;
+            this.rbtCantidad.Text = "Cantidad";
+            this.rbtCantidad.UseVisualStyleBackColor = true;
+            this.rbtCantidad.CheckedChanged += new System.EventHandler(this.rbtCantidad_CheckedChanged);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(380, 110);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Filtrar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnMostrarTodos
+            // 
+            this.btnMostrarTodos.Location = new System.Drawing.Point(775, 107);
+            this.btnMostrarTodos.Name = "btnMostrarTodos";
+            this.btnMostrarTodos.Size = new System.Drawing.Size(138, 28);
+            this.btnMostrarTodos.TabIndex = 19;
+            this.btnMostrarTodos.Text = "Mostrar Todo";
+            this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.btnMostrarTodos.Click += new System.EventHandler(this.btnTodos_Click);
+            // 
             // FrmListarServicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 320);
+            this.ClientSize = new System.Drawing.Size(1011, 543);
+            this.Controls.Add(this.btnMostrarTodos);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.rbtCantidad);
+            this.Controls.Add(this.rbtPrecio);
+            this.Controls.Add(this.numHasta);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.numDesde);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvServicios);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmListarServicio";
             this.Text = "Lista de servicios registrados";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numHasta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDesde)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -139,5 +257,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colObsv;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown numHasta;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numDesde;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rbtPrecio;
+        private System.Windows.Forms.RadioButton rbtCantidad;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMostrarTodos;
     }
 }

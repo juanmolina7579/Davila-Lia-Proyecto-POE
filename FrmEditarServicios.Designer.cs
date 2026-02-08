@@ -30,8 +30,15 @@
         {
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
+            this.ColNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObsv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtCantidad = new System.Windows.Forms.NumericUpDown();
+            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.lblObservacion = new System.Windows.Forms.Label();
             this.cmbUnidad = new System.Windows.Forms.ComboBox();
@@ -41,15 +48,8 @@
             this.lblPrecio = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
-            this.ColNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObsv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -81,6 +81,63 @@
             this.dgvServicios.RowHeadersWidth = 51;
             this.dgvServicios.Size = new System.Drawing.Size(696, 200);
             this.dgvServicios.TabIndex = 3;
+            this.dgvServicios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServicios_CellContentClick);
+            // 
+            // ColNro
+            // 
+            this.ColNro.HeaderText = "Nro";
+            this.ColNro.MinimumWidth = 6;
+            this.ColNro.Name = "ColNro";
+            this.ColNro.ReadOnly = true;
+            this.ColNro.Width = 125;
+            // 
+            // colTipo
+            // 
+            this.colTipo.HeaderText = "Tipo";
+            this.colTipo.MinimumWidth = 6;
+            this.colTipo.Name = "colTipo";
+            this.colTipo.ReadOnly = true;
+            this.colTipo.Width = 125;
+            // 
+            // colPrecio
+            // 
+            this.colPrecio.HeaderText = "Precio";
+            this.colPrecio.MinimumWidth = 6;
+            this.colPrecio.Name = "colPrecio";
+            this.colPrecio.ReadOnly = true;
+            this.colPrecio.Width = 125;
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.HeaderText = "Cant.";
+            this.colCantidad.MinimumWidth = 6;
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.ReadOnly = true;
+            this.colCantidad.Width = 125;
+            // 
+            // colUnidad
+            // 
+            this.colUnidad.HeaderText = "Unidad";
+            this.colUnidad.MinimumWidth = 6;
+            this.colUnidad.Name = "colUnidad";
+            this.colUnidad.ReadOnly = true;
+            this.colUnidad.Width = 125;
+            // 
+            // colObsv
+            // 
+            this.colObsv.HeaderText = "Observacion";
+            this.colObsv.MinimumWidth = 6;
+            this.colObsv.Name = "colObsv";
+            this.colObsv.ReadOnly = true;
+            this.colObsv.Width = 125;
+            // 
+            // colTotal
+            // 
+            this.colTotal.HeaderText = "Total";
+            this.colTotal.MinimumWidth = 6;
+            this.colTotal.Name = "colTotal";
+            this.colTotal.ReadOnly = true;
+            this.colTotal.Width = 125;
             // 
             // btnGuardar
             // 
@@ -90,19 +147,20 @@
             this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // txtCantidad
+            // nudCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(191, 292);
-            this.txtCantidad.Maximum = new decimal(new int[] {
+            this.nudCantidad.Location = new System.Drawing.Point(191, 292);
+            this.nudCantidad.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(84, 20);
-            this.txtCantidad.TabIndex = 28;
-            this.txtCantidad.Value = new decimal(new int[] {
+            this.nudCantidad.Name = "nudCantidad";
+            this.nudCantidad.Size = new System.Drawing.Size(84, 20);
+            this.nudCantidad.TabIndex = 28;
+            this.nudCantidad.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -187,68 +245,12 @@
             this.lblTipo.TabIndex = 19;
             this.lblTipo.Text = "Nombre del servicio:";
             // 
-            // ColNro
-            // 
-            this.ColNro.HeaderText = "Nro";
-            this.ColNro.MinimumWidth = 6;
-            this.ColNro.Name = "ColNro";
-            this.ColNro.ReadOnly = true;
-            this.ColNro.Width = 125;
-            // 
-            // colTipo
-            // 
-            this.colTipo.HeaderText = "Tipo";
-            this.colTipo.MinimumWidth = 6;
-            this.colTipo.Name = "colTipo";
-            this.colTipo.ReadOnly = true;
-            this.colTipo.Width = 125;
-            // 
-            // colPrecio
-            // 
-            this.colPrecio.HeaderText = "Precio";
-            this.colPrecio.MinimumWidth = 6;
-            this.colPrecio.Name = "colPrecio";
-            this.colPrecio.ReadOnly = true;
-            this.colPrecio.Width = 125;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cant.";
-            this.colCantidad.MinimumWidth = 6;
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.ReadOnly = true;
-            this.colCantidad.Width = 125;
-            // 
-            // colUnidad
-            // 
-            this.colUnidad.HeaderText = "Unidad";
-            this.colUnidad.MinimumWidth = 6;
-            this.colUnidad.Name = "colUnidad";
-            this.colUnidad.ReadOnly = true;
-            this.colUnidad.Width = 125;
-            // 
-            // colObsv
-            // 
-            this.colObsv.HeaderText = "Observacion";
-            this.colObsv.MinimumWidth = 6;
-            this.colObsv.Name = "colObsv";
-            this.colObsv.ReadOnly = true;
-            this.colObsv.Width = 125;
-            // 
-            // colTotal
-            // 
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.MinimumWidth = 6;
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 125;
-            // 
             // FrmEditarServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 407);
-            this.Controls.Add(this.txtCantidad);
+            this.Controls.Add(this.nudCantidad);
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.lblObservacion);
             this.Controls.Add(this.cmbUnidad);
@@ -264,7 +266,7 @@
             this.Name = "FrmEditarServicios";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,7 +276,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvServicios;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.NumericUpDown txtCantidad;
+        private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.TextBox txtObservacion;
         private System.Windows.Forms.Label lblObservacion;
         private System.Windows.Forms.ComboBox cmbUnidad;

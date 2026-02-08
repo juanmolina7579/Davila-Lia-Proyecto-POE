@@ -40,8 +40,8 @@ namespace Vista
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAcercaDe frm = new FrmAcercaDe();
-            frm.ShowDialog();
+            FrmAcercaDe frmAcerca = new FrmAcercaDe();
+            frmAcerca.ShowDialog();
 
         }
 
@@ -69,8 +69,8 @@ namespace Vista
             admServ.CargarServicios();
             if (admServ.GetCantidadLista() > 0)
             {
-                FrmEditarServicios frmEliServ = new FrmEditarServicios();
-                frmEliServ.ShowDialog();
+                FrmEditarServicios frmEditServ = new FrmEditarServicios();
+                frmEditServ.ShowDialog();
             }
             else
             {
